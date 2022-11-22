@@ -7,53 +7,30 @@ import time
 from array import *
 
 #variable_name = array(pyscreeze.Box, [10])
-for i in range(510):
-    print(i)
-    pprint = pyautogui.locateOnScreen('print0.png')  # print
-    if pprint is None:
-        time.sleep(2)
-        pprint = pyautogui.locateOnScreen('print0.png')
-    pyautogui.moveTo(pprint)
-    pyautogui.click()
-    time.sleep(0.5)
-    pprint1 = pyautogui.locateOnScreen('print12.png')  # print next 1 для отчетов 12 для соглашений рп
-    if pprint1 is None:
-        time.sleep(2)
-        pprint1 = pyautogui.locateOnScreen('print12.png')
-    pyautogui.moveTo(pprint1)
-    pyautogui.click()
-    time.sleep(2)
-    pprint2 = pyautogui.locateOnScreen('print2.png')  # load
-    if pprint2 is None:
-        time.sleep(4)
-        pprint2 = pyautogui.locateOnScreen('print2.png')
-    pyautogui.moveTo(pprint2)#1240, 302)
-    pyautogui.click()
-    time.sleep(1.5)
-    pprint3 = pyautogui.locateOnScreen('print3.png')  # save
-    if pprint3 is None:
-        time.sleep(2)
-        pprint3 = pyautogui.locateOnScreen('print3.png')
-        qq = pprint3.top
-    pyautogui.moveTo(pprint3)
-    pyautogui.click()
-    time.sleep(1)
-    pprint4 = pyautogui.locateOnScreen('print4.png')  # close
-    if pprint4 is None:
-        time.sleep(2)
-        pprint4 = pyautogui.locateOnScreen('print4.png')
-    pyautogui.moveTo(pprint4)
-    pyautogui.click()
-    time.sleep(1)
-    pprint5 = pyautogui.locateOnScreen('print52.png')  # next для отчетов 5 для отчетов, 52 для соглашений рп
-    if pprint5 is None:
-        time.sleep(2)
-        pprint5 = pyautogui.locateOnScreen('print52.png')
-    pyautogui.moveTo(pprint5)
-    pyautogui.click()
-    print(pprint5)
-    if pprint5.top > 600:  # down
-        pyautogui.scroll(-170)
+ts = 0.8
+for i in range(20):
+    for u in range(1, 14):
+        print(i)
+        print("-")
+        print(u)
+        t = 0
+        while t == 0:
+            pprint = pyautogui.locateOnScreen(str(u)+'.png')
+            time.sleep(ts)
+            if not pprint is None:
+                t=1
+        if pprint.top > 600 and u == 1:  # down
+            pyautogui.scroll(-170)
+            time.sleep(ts/2)
+            pprint = pyautogui.locateOnScreen(str(u) + '.png')
+            time.sleep(ts / 2)
+        pyautogui.moveTo(pprint)
+        pyautogui.click()
+        if u == 6:
+            pyautogui.write('.')
+        time.sleep(ts)
+
+
 
 # for i in range(210):
 #     print(i)
