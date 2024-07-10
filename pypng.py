@@ -1,5 +1,4 @@
 import cv2
-import time
 import numpy as np
 import pyscreenshot as ImageGrab
 import pyautogui #pip install opencv-python для pyautogui.locateOnScreen('link.png', region=(x, y-30, 600, 55), confidence=0.95)"
@@ -9,39 +8,7 @@ from array import *
 #variable_name = array(pyscreeze.Box, [10])
 ts = 0.4
 ppaus = 1
-# резолюция согласовано
-# for i in range(40):
-#     for u in range(1, 13):
-#         print(i)
-#         print("-")
-#         print(u)
-#         t = 0
-#         while t == 0:
-#             pprint = pyautogui.locateOnScreen(str(u)+'.png')
-#             time.sleep(ts)
-#             if not pprint is None:
-#                 t=1
-#         if pprint.top > 600 and u == 1:  # down
-#             pyautogui.scroll(-100)
-#             time.sleep(ts/2)
-#             pprint = pyautogui.locateOnScreen(str(u) + '.png')
-#             time.sleep(ts / 2)
-#         pyautogui.moveTo(pprint)
-#         t=0
-#         if u==7:
-#             while t == 0:
-#                 pprint1 = pyautogui.locateOnScreen(str(u) + '.png')
-#                 time.sleep(ts)
-#                 if pprint1 is None:
-#                     t = 1
-#         pyautogui.click()
-#         #if u == 6:
-#         #    pyautogui.write('.')
-#         time.sleep(ts)
-#     time.sleep(ppaus)
-
-
-for i in range(40): #переформ по шаблону очень плохо работает с прокруткой pip install opencv-python
+for i in range(40):  # переформ по шаблону очень плохо работает с прокруткой pip install opencv-python
     for u in range(1, 9):
         print(i)
         print("-")
@@ -58,9 +25,9 @@ for i in range(40): #переформ по шаблону очень плохо 
             pprint = pyautogui.locateOnScreen(str(u) + '.png')
             time.sleep(ts / 2)
         pyautogui.moveTo(pprint)
-        if u == 1: #проверка на дозагруз страницы
-            t=0
-            while t==0:
+        if u == 1:  # проверка на дозагруз страницы
+            t = 0
+            while t == 0:
                 pyautogui.click()
                 time.sleep(ts / 2)
                 print(1)
